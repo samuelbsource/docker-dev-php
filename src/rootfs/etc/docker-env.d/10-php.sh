@@ -2,13 +2,13 @@
 
 # A list of environment variables used by the container.
 # Some of these variables are derived from other environment variables,
-# hance I needed a separate script that I can re-run many time withthin the container.
+# hance I needed a separate script that I can re-run many times withthin the container.
 # An added benefit of this file is that it's a one-stop place to list environment variables available for configuration.
 
 export PHP_VERSION=$(/usr/bin/php -n -r "echo explode('.', phpversion())[0] . '.' . explode('.', phpversion())[1];")  # Set to the installed PHP_VERSION, e.g. 8.1
 export PHP_EXT_DIR=$(/usr/bin/php -n -i | grep "extension_dir => " | awk -F\ =\>\  '{print $2}')                      # Set to the patch where extensions are installed
 
-# Variables used by docker-entrypoint & php-inotify.sh
+# Variables used by docker-entrypoint.d/docker-reloadpoint.d
 export PHP_COPY_CONFIG_ON_START=${PHP_COPY_CONFIG_ON_START:-true}         # When enabled and /etc/php/$PHP_VERSION directory is empty, initial configuration files will be copied to this directory when bootstrapping the container.
 export PHP_CONFIGURE_FROM_ENV=${PHP_CONFIGURE_FROM_ENV:-true}             # When enabled, *.env files will be used to generate configuration files with values from the environment.
 
