@@ -8,6 +8,7 @@ function sources_hcl_template () {
 source "docker" "php-${php/./-}-${ubuntu/./-}" {
   image = "\${var.source_repository}:${ubuntu}"
   commit = true
+  pull = false
   changes = [
     "ENTRYPOINT [\\"\${local.image_entrypoint}\\"]",
     "CMD [\\"\${join("\\", \\"", local.image_default_command)}\\"]",
