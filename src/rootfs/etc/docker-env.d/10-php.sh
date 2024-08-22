@@ -14,7 +14,7 @@ export PHP_CONFIGURE_FROM_ENV=${PHP_CONFIGURE_FROM_ENV:-true}             # When
 
 # Default variables available for PHP configuration
 export PHP_MEMORY_LIMIT=${PHP_MEMORY_LIMIT:-"512M"}                       # Default memory limit for CLI and FPM
-export PHP_CLI_MEMORY_LIMIT=${PHP_CLI_MEMORY_LIMIT:-"$PHP_MEMORY_LIMIT"}  # Default memory limit for CLI
+export PHP_CLI_MEMORY_LIMIT=${PHP_CLI_MEMORY_LIMIT:-"-1"}                 # Default memory limit for CLI
 export PHP_FPM_MEMORY_LIMIT=${PHP_FPM_MEMORY_LIMIT:-"$PHP_MEMORY_LIMIT"}  # Default memory limit for FPM
 
 export PHP_SENDMAIL_PATH=${PHP_SENDMAIL_PATH:-"/usr/bin/mhsendmail --smtp-addr='localhost:1025'"}  # mhsendmail can be used to send all emails to the specified testing SMTP server 
